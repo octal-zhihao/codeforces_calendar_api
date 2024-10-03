@@ -14,7 +14,7 @@
     <script src="https://unpkg.com/github-calendar/dist/github-calendar.min.js"></script>
     <script>
         // Fetch the Codeforces calendar data from your Flask API
-        fetch('https://your-api-url/api/codeforces_calendar/octal2024')
+        fetch('https://codeforces-calendar-api.vercel.app/api/octal2024')
         .then(response => response.json())
         .then(data => {
             // Format the data into the format required by GitHub Calendar

@@ -2,8 +2,10 @@ from flask import Flask, jsonify
 import requests
 from collections import defaultdict
 from datetime import datetime, timedelta
+from flask_cors import CORS  # 导入 CORS
 
 app = Flask(__name__)
+CORS(app)  # 启用 CORS
 
 def get_codeforces_submissions(handle):
     url = f"https://codeforces.com/api/user.status?handle={handle}"
@@ -33,7 +35,7 @@ def generate_calendar_data(handle):
 
     return dict(calendar_data)
 
-@app.route("/api/codeforces_calendar/<handle>")
+@app.route("/api/<handle>")
 def codeforces_calendar(handle):
     calendar_data = generate_calendar_data(handle)
     return jsonify(calendar_data)
